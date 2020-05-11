@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Helmet from 'react-helmet';
 import L from 'leaflet';
 
+import './hubs.json';
 import { promiseToFlyTo, getCurrentLocation } from 'lib/map';
 
 import Layout from 'components/Layout';
@@ -21,6 +22,28 @@ const IndexPage = () => {
    * @description Fires a callback once the page renders
    * @example Here this is and example of being used to zoom in and set a popup on load
    */
+  const { data = [] } = response;
+  const hasData = Array.isArray(data) && data.length > 0;
+
+  if (!hasData) return;
+
+  const geoJson = {
+    type: 'FeatureCollection',
+    features: data.map((country = {}) => {
+      const { countryInfo = {} } = country;
+      const { lat, long: lng } = countryInfo;
+      return {
+        type: 'Feature',
+        properties: {
+          ...country
+        },
+        geometry: {
+          type: 'Point',
+          coordinates: [ lng, lat ]
+        }
+      };
+    })
+  };
 
   async function mapEffect({ leafletElement: map } = {}) {}
 
@@ -38,20 +61,6 @@ const IndexPage = () => {
       </Helmet>
 
       <Map {...mapSettings} />
-
-      <Container type='content' className='text-center home-start'>
-        <h2>Still Getting Started?</h2>
-        <p>Run the following in your terminal!</p>
-        <pre>
-          <code>
-            gatsby new [directory]
-            https://github.com/colbyfayock/gatsby-starter-leaflet
-          </code>
-        </pre>
-        <p className='note'>
-          Note: Gatsby CLI required globally for the above command
-        </p>
-      </Container>
     </Layout>
   );
 };
