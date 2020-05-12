@@ -1,15 +1,15 @@
 [
   {
-    "country": "Canada",
     "city": "Vancouver",
+    "country": "Canada",
     "coordinates": {
       "lat": 49.2827,
       "lng": -123.1207
     }
   },
   {
-    "country": "United Kingdom",
     "city": "Loughborough",
+    "country": "United Kingdom",
     "coordinates": {
       "lat": -52.7721,
       "lng": -1.2062
