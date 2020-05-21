@@ -31,13 +31,13 @@ A mapping project displaying all of the #AgainstCorona hubs.
 ```
 yarn global add gatsby-cli
 ```
-* Inside the directory of your choice, scaffold a new Gatsby site:
+* Inside the directory of your choice, use this command to create your own version of the map:
 ```
 gatsby new [directory] https://github.com/nejohnston/covid-map.git
 ```
-For example, if I want my installation in `~/Code/new-gatsby-site`, I would navigate to `~/Code` and run:
+For example, if I want my installation in `~/Code/covid-map`, I would navigate to `~/Code` and run:
 ```
-gatsby new new-gatsby-site https://github.com/nejohnston/covid-map.git
+gatsby new covid-map https://github.com/nejohnston/covid-map.git
 ```
 * Navigate to your new directory and run:
 ```
