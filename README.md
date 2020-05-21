@@ -1,9 +1,9 @@
-# 🍃 Gatsby Leaflet Starter
+# 🍃 #AgainstCorona
 
-Jumpstart your next Gatsby mapping project with Leaflet!
-
+A mapping project displaying all of the #AgainstCorona hubs.
+<!-- 
 ## ⚡ Quick Deploy
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colbyfayock/gatsby-starter-leaflet) [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/colbyfayock/gatsby-starter-leaflet)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/colbyfayock/gatsby-starter-leaflet) [![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/colbyfayock/gatsby-starter-leaflet) -->
 
 
 ## 🧰 What This Includes
@@ -20,12 +20,10 @@ Jumpstart your next Gatsby mapping project with Leaflet!
 ### Requirements
 * [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)
 * [Yarn](https://yarnpkg.com/en/)
+* [MapBox](www.mapbox.com)* 
 
-### Quick Start
-Run the following in your favorite terminal:
-```
-gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet
-```
+*A MapBox API key is required to run this application. Search '{process.env.GATSBY_MAP_APP}' in the project. Switch this out for the API link provided to you by MapBox.
+
 
 ### Starting from Scratch
 * Set up Yarn: https://yarnpkg.com/lang/en/docs/install/#mac-stable)[https://yarnpkg.com/lang/en/docs/install/
@@ -35,14 +33,14 @@ yarn global add gatsby-cli
 ```
 * Inside the directory of your choice, scaffold a new Gatsby site:
 ```
-gatsby new [directory] https://github.com/colbyfayock/gatsby-starter-leaflet
+gatsby new [directory] https://github.com/nejohnston/covid-map.git
 ```
 For example, if I want my installation in `~/Code/new-gatsby-site`, I would navigate to `~/Code` and run:
 ```
-gatsby new new-gatsby-site https://github.com/colbyfayock/gatsby-starter-leaflet
+gatsby new new-gatsby-site https://github.com/nejohnston/covid-map.git
 ```
 * Navigate to your new directory and run:
 ```
 yarn develop
 ```
-* You should now be running a new Gatsby site locally! 🎉
+* You should now be running the Map locally! 🎉
