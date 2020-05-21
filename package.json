@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-leaflet",
-  "description": "A Gatsby starter with Leafet!",
+  "name": "sac-covid-map",
+  "description": "#AgainstCorona Map",
   "version": "0.2.4",
-  "author": "Colby Fayock <hello@colbyfayock.com>",
+  "author": "Nicholas Johnston <https://www.linkedin.com/in/n-johnston/>",
   "dependencies": {
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
@@ -40,13 +40,7 @@
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0"
   },
-  "keywords": [
-    "gatsby",
-    "sass",
-    "leaflet",
-    "mapping",
-    "maps"
-  ],
+  "keywords": [ "gatsby", "sass", "leaflet", "mapping", "maps" ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -65,10 +59,7 @@
     }
   },
   "lint-staged": {
-    "**/*.js": [
-      "yarn format",
-      "yarn lint"
-    ]
+    "**/*.js": [ "yarn format", "yarn lint" ]
   },
   "repository": {
     "type": "git",
