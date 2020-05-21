@@ -39,7 +39,7 @@ For example, if I want my installation in `~/Code/covid-map`, I would navigate t
 ```
 gatsby new covid-map https://github.com/nejohnston/covid-map.git
 ```
-* Create file for API Key
+* Create file for API Key. These following steps will prevent attackers accessing your API key:
 ```
 touch .env.production
 ```
