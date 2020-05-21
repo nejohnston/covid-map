@@ -3,12 +3,7 @@ import Helmet from 'react-helmet';
 import L from 'leaflet';
 import { TileLayer } from 'react-leaflet';
 
-import {
-  // promiseToFlyTo,
-  // getCurrentLocation,
-  createTripPointsGeoJson,
-  tripStopPointToLayer,
-} from 'lib/map';
+import { createTripPointsGeoJson, tripStopPointToLayer } from 'lib/map';
 
 import Layout from 'components/Layout';
 
@@ -16,17 +11,7 @@ import Map from 'components/Map';
 
 import { locations } from 'data/locations';
 
-// const LOCATION = {
-//   lat: 20.6078,
-//   lng: 8.0817
-// };
-// const CENTER = [ LOCATION.lat, LOCATION.lng ];
 const DEFAULT_ZOOM = 2.5;
-// const ZOOM = 10;
-
-// const timeToZoom = 2000;
-// const timeToOpenPopupAfterZoom = 4000;
-// const timeToUpdatePopupAfterZoom = timeToOpenPopupAfterZoom + 3000;
 
 const IndexPage = () => {
   /**

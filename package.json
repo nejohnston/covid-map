@@ -29,7 +29,7 @@
     "babel-jest": "^25.2.6",
     "babel-preset-gatsby": "^0.3.1",
     "enzyme": "^3.11.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-config-zurgbot": "^0.0.6",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
@@ -40,7 +40,13 @@
     "prettier-eslint": "^9.0.1",
     "prettier-eslint-cli": "^5.0.0"
   },
-  "keywords": [ "gatsby", "sass", "leaflet", "mapping", "maps" ],
+  "keywords": [
+    "gatsby",
+    "sass",
+    "leaflet",
+    "mapping",
+    "maps"
+  ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -59,7 +65,10 @@
     }
   },
   "lint-staged": {
-    "**/*.js": [ "yarn format", "yarn lint" ]
+    "**/*.js": [
+      "yarn format",
+      "yarn lint"
+    ]
   },
   "repository": {
     "type": "git",

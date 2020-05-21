@@ -88,7 +88,7 @@ export function tripStopPointToLayer( feature = {}, latlng ) {
   }
 
   // Determines wether or not to display Facebook or not
-  if ( fb != '' ) {
+  if ( fb !== '' ) {
     text = `
     <div class="trip-stop">
       <div class="trip-stop-left-content">
