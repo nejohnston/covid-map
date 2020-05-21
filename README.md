@@ -39,11 +39,11 @@ For example, if I want my installation in `~/Code/covid-map`, I would navigate t
 ```
 gatsby new covid-map https://github.com/nejohnston/covid-map.git
 ```
-* Create file for API Key. These following steps will prevent attackers accessing your API key:
+* Create file for API Key. These following steps will prevent anyone seeing your API key if you push to source control:
 ```
 touch .env.production
 ```
-* Navigate to .env.production and add this and your API key at the end:
+* Navigate to .env.production. Add the following, appending your API key:
 ```
 GATSBY_APP_MAP=https://api.mapbox.com/styles/v1/nejohnston/cka5r2bm40j3f1ipbqpe41d4a/tiles/256/{z}/{x}/{y}@2x?access_token=
 ```
