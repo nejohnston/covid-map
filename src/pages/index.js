@@ -1,18 +1,32 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import L from 'leaflet';
+import { TileLayer } from 'react-leaflet';
 
-import axios from 'axios';
+import {
+  // promiseToFlyTo,
+  // getCurrentLocation,
+  createTripPointsGeoJson,
+  tripStopPointToLayer,
+} from 'lib/map';
 
 import Layout from 'components/Layout';
+
 import Map from 'components/Map';
 
-const LOCATION = {
-  lat: 0,
-  lng: 0,
-};
-const CENTER = [LOCATION.lat, LOCATION.lng];
-const DEFAULT_ZOOM = 3;
+import { locations } from 'data/locations';
+
+// const LOCATION = {
+//   lat: 20.6078,
+//   lng: 8.0817
+// };
+// const CENTER = [ LOCATION.lat, LOCATION.lng ];
+const DEFAULT_ZOOM = 2.5;
+// const ZOOM = 10;
+
+// const timeToZoom = 2000;
+// const timeToOpenPopupAfterZoom = 4000;
+// const timeToUpdatePopupAfterZoom = timeToOpenPopupAfterZoom + 3000;
 
 const IndexPage = () => {
   /**
@@ -21,88 +35,21 @@ const IndexPage = () => {
    * @example Here this is and example of being used to zoom in and set a popup on load
    */
 
-  async function mapEffect({ leafletElement: map } = {}) {
-    let response;
+  async function mapEffect({ leafletElement } = {}) {
+    if ( !leafletElement ) return;
 
-    try {
-      response = await axios.get( 'https://corona.lmao.ninja/v2/countries' );
-    } catch ( e ) {
-      console.log( `Failed to fetch countries: ${e.message}`, e );
-      return;
-    }
-
-    const { data = [] } = response;
-    const hasData = Array.isArray( data ) && data.length > 0;
-
-    if ( !hasData ) return;
-
-    const geoJson = {
-      type: 'FeatureCollection',
-      features: data.map(( country = {}) => {
-        const { countryInfo = {} } = country;
-        const { lat, long: lng } = countryInfo;
-        return {
-          type: 'Feature',
-          properties: {
-            ...country,
-          },
-          geometry: {
-            type: 'Point',
-            coordinates: [lng, lat],
-          },
-        };
-      }),
-    };
-
-    const geoJsonLayers = new L.GeoJSON( geoJson, {
-      pointToLayer: ( feature = {}, latlng ) => {
-        const { properties = {} } = feature;
-        let updatedFormatted;
-        let casesString;
-
-        const { country, updated, cases, deaths, recovered } = properties;
-
-        casesString = `${cases}`;
-
-        if ( cases > 1000 ) {
-          casesString = `${casesString.slice( 0, -3 )}k+`;
-        }
-
-        if ( updated ) {
-          updatedFormatted = new Date( updated ).toLocaleString();
-        }
-
-        const html = `
-          <span class="icon-marker">
-            <span class="icon-marker-tooltip">
-              <h2>${country}</h2>
-              <ul>
-                <li><strong>Confirmed:</strong> ${cases}</li>
-                <li><strong>Deaths:</strong> ${deaths}</li>
-                <li><strong>Recovered:</strong> ${recovered}</li>
-                <li><strong>Last Update:</strong> ${updatedFormatted}</li>
-              </ul>
-            </span>
-            ${casesString}
-          </span>
-        `;
-
-        return L.marker( latlng, {
-          icon: L.divIcon({
-            className: 'icon',
-            html,
-          }),
-          riseOnHover: true,
-        });
-      },
+    leafletElement.eachLayer(( layer ) => leafletElement.removeLayer( layer ));
+    const tripPoints = createTripPointsGeoJson({ locations });
+    const tripPointsGeoJsonLayers = new L.geoJson( tripPoints, {
+      pointToLayer: tripStopPointToLayer,
     });
-
-    geoJsonLayers.addTo( map );
+    tripPointsGeoJsonLayers.addTo( leafletElement );
+    const bounds = tripPointsGeoJsonLayers.getBounds();
+    leafletElement.fitBounds( bounds );
   }
 
   const mapSettings = {
-    center: CENTER,
-    defaultBaseMap: 'OpenStreetMap',
+    defaultBaseMap: 'mapSettings',
     zoom: DEFAULT_ZOOM,
     mapEffect,
   };
@@ -110,10 +57,16 @@ const IndexPage = () => {
   return (
     <Layout pageName="home">
       <Helmet>
-        <title>Home Page</title>
+        <title>#AgainstCorona</title>
       </Helmet>
 
-      <Map {...mapSettings} />
+      <Map {...mapSettings}>
+        <TileLayer
+          url={process.env.GATSBY_APP_MAP}
+          attribution='Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>
+'
+        />
+      </Map>
     </Layout>
   );
 };

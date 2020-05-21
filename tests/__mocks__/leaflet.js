@@ -75,11 +75,10 @@ class MapMock extends LeafletMock.Map {
     if ( options.maxBounds ) {
       this.setMaxBounds( options.maxBounds );
     }
-    console.log( 'asdfasdf' );
 
     if ( options.center && options.zoom !== undefined ) {
-      console.log( 'options.center', options.center );
-      console.log( 'options.zoom', options.zoom );
+      // console.log( 'options.center', options.center );
+      // console.log( 'options.zoom', options.zoom );
       this.setView( L.latLng( options.center ), options.zoom );
     }
   }
@@ -166,5 +165,5 @@ module.exports = {
   Map: MapMock,
   map: ( id, options ) => new MapMock( id, options ),
   Popup: PopupMock,
-  popup: ( options, source ) => new PopupMock( options, source )
+  popup: ( options, source ) => new PopupMock( options, source ),
 };

@@ -15,7 +15,7 @@ const Layout = ({ children, pageName }) => {
   }
 
   return (
-    <>
+    <div>
       <Helmet bodyAttributes={{ class: className }}>
         <title>Gatsby Site</title>
       </Helmet>
@@ -24,13 +24,13 @@ const Layout = ({ children, pageName }) => {
         <main>{ children }</main>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-  pageName: PropTypes.string
+  pageName: PropTypes.string,
 };
 
 export default Layout;
