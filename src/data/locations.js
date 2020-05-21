@@ -11,10 +11,6 @@ export const locations = [
       fb: 'https://www.facebook.com/groups/LboroVolunteers/',
       ws: 'http://againstcorona.co.uk',
     },
-    // social: {
-    //   fb: 'https://www.facebook.com/groups/StudentsAgainstCorona/',
-    //   ws: 'http://studentsagainstcorona.co.uk'
-    // }
   },
   {
     placename: 'Oxford',
