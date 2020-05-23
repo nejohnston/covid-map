@@ -12,7 +12,7 @@ import Map from 'components/Map';
 import { locations } from 'data/locations';
 
 const DEFAULT_ZOOM = 2.5;
-console.log(process.env.GATSBY_APP_MAP);
+
 const IndexPage = () => {
   /**
    * mapEffect

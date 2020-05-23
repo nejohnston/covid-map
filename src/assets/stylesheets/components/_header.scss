@@ -198,120 +198,7 @@ pre[class*=language-] {
   border-radius: .3em;
   white-space: normal;
 }
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-  color: #999;
-}
-.token.punctuation {
-  color: #ccc;
-}
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-  color: #e2777a;
-}
-.token.function-name {
-  color: #6196cc;
-}
-.token.boolean,
-.token.number,
-.token.function {
-  color: #f08d49;
-}
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-  color: #f8c555;
-}
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-  color: #cc99cd;
-}
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-  color: #7ec699;
-}
-.token.operator,
-.token.entity,
-.token.url {
-  color: #67cdcc;
-}
-.token.important,
-.token.bold {
-  font-weight: 700;
-}
-.token.italic {
-  font-style: italic;
-}
-.token.entity {
-  cursor: help;
-}
-.token.inserted {
-  color: green;
-}
-// :root {
-//   --phoneWidth: (max-width: 684px);
-//   --tabletWidth: (max-width: 900px);
-// }
-// @font-face {
-//   font-family: inter ui;
-//   font-style: normal;
-//   font-display: auto;
-//   font-weight: 400;
-//   src: url(../fonts/Inter-UI-Regular.woff2) format("woff2"),
-//     url(../fonts/Inter-UI-Regular.woff) format("woff");
-// }
-// @font-face {
-//   font-family: inter ui;
-//   font-style: italic;
-//   font-display: auto;
-//   font-weight: 400;
-//   src: url(../fonts/Inter-UI-Italic.woff2) format("woff2"),
-//     url(../fonts/Inter-UI-Italic.woff) format("woff");
-// }
-// @font-face {
-//   font-family: inter ui;
-//   font-style: normal;
-//   font-display: auto;
-//   font-weight: 600;
-//   src: url(../fonts/Inter-UI-Medium.woff2) format("woff2"),
-//     url(../fonts/Inter-UI-Medium.woff) format("woff");
-// }
-// @font-face {
-//   font-family: inter ui;
-//   font-style: italic;
-//   font-display: auto;
-//   font-weight: 600;
-//   src: url(../fonts/Inter-UI-MediumItalic.woff2) format("woff2"),
-//     url(../fonts/Inter-UI-MediumItalic.woff) format("woff");
-// }
-// @font-face {
-//   font-family: inter ui;
-//   font-style: normal;
-//   font-display: auto;
-//   font-weight: 800;
-//   src: url(../fonts/Inter-UI-Bold.woff2) format("woff2"),
-//     url(../fonts/Inter-UI-Bold.woff) format("woff");
-// }
-// @font-face {
-//   font-family: inter ui;
-//   font-style: italic;
-//   font-display: auto;
-//   font-weight: 800;
-//   src: url(../fonts/Inter-UI-BoldItalic.woff2) format("woff2"),
-//     url(../fonts/Inter-UI-BoldItalic.woff) format("woff");
-// }
+
 .button-container {
   display: table;
   margin-left: auto;
@@ -486,21 +373,13 @@ a.button.wide {
   }
 }
 .menu {
-  background: #fafafa;
-  border-right: 1px solid;
-  margin-right: 18px;
   z-index: 9999;
 }
-@media (max-width: 684px) {
-  .menu {
-    position: absolute;
-    top: 50px;
-    right: 0;
-    border: none;
-    margin: 0;
-    padding: 10px;
-  }
-}
+// @media (max-width: 684px) {
+//   .menu {
+//     margin: 0;
+//   }
+// }
 .menu__inner {
   display: flex;
   align-items: center;
@@ -514,17 +393,17 @@ a.button.wide {
 .menu__inner li {
   margin: 0 12px;
 }
-@media (max-width: 684px) {
-  .menu__inner {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-  }
-  .menu__inner li {
-    margin: 0;
-    padding: 5px;
-  }
-}
+// @media (max-width: 684px) {
+//   .menu__inner {
+//     flex-direction: column;
+//     align-items: flex-start;
+//     padding: 0;
+//   }
+//   .menu__inner li {
+//     margin: 0;
+//     padding: 5px;
+//   }
+// }
 .menu-trigger {
   width: 24px;
   height: 24px;
@@ -534,7 +413,6 @@ a.button.wide {
 }
 .menu a {
   display: inline-block;
-  margin-right: 15px;
   text-decoration: none;
 }
 .menu a:hover {
@@ -547,26 +425,6 @@ a.button.wide {
 *:before,
 *:after {
   box-sizing: inherit;
-}
-body {
-  margin: 0;
-  padding: 0;
-  font-family: inter ui, -apple-system, BlinkMacSystemFont, roboto, segoe ui,
-    Helvetica, Arial, sans-serif;
-  font-display: auto;
-  font-size: 1rem;
-  line-height: 1.54;
-  background-color: #fff;
-  color: #222;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: "liga", "tnum", "case", "calt", "zero", "ss01", "locl";
-  -webkit-overflow-scrolling: touch;
-  -webkit-text-size-adjust: 100%;
-  display: flex;
-  height: 100%;
-  width: 100vw;
-  flex-direction: column;
 }
 @media (max-width: 684px) {
   body {

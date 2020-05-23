@@ -1,10 +1,7 @@
 import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
+import DropMenu from './DropMenu';
 
 const Header = () => {
-  const showSettings = (event) => {
-    event.preventDefault();
-  };
   return (
     <header className='header'>
       <span className='header__inner'>
@@ -17,27 +14,6 @@ const Header = () => {
         </a>
 
         <span className='header__right'>
-          {/* window.screen.width > 720 ? ( */}
-          <nav className='menu'>
-            <ul className='menu__inner'>
-              <li>
-                <a href='../about/'>About</a>
-              </li>
-              <li>
-                <a href='../donate/'>Donate</a>
-              </li>
-              <li>
-                <a href='../how_can_i_help/'>How</a>
-              </li>
-              <li>
-                <a href='../hygiene/'>Hygiene</a>
-              </li>
-              <li>
-                <a href='../press/'>Press</a>
-              </li>
-            </ul>
-          </nav>
-          {/* ) : ( */}
           {/* <span className='menu-trigger'>
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>
               <path d='M0 0h24v24H0z' fill='none' />
@@ -45,22 +21,30 @@ const Header = () => {
             </svg>
           </span> */}
           <div>
-            <Menu>
-              <a id='home' className='menu-item' href='/'>
-                Home
-              </a>
-              <a id='about' className='menu-item' href='/about'>
-                About
-              </a>
-              <a id='contact' className='menu-item' href='/contact'>
-                Contact
-              </a>
-              <a onClick={showSettings} className='menu-item--small' href=''>
-                Settings
-              </a>
-            </Menu>
+            {window.screen.width < 687 ? (
+              <DropMenu />
+            ) : (
+              <nav className='menu'>
+                <ul className='menu__inner'>
+                  <li>
+                    <a href='../about/'>About</a>
+                  </li>
+                  <li>
+                    <a href='../donate/'>Donate</a>
+                  </li>
+                  <li>
+                    <a href='../how_can_i_help/'>How</a>
+                  </li>
+                  <li>
+                    <a href='../hygiene/'>Hygiene</a>
+                  </li>
+                  <li>
+                    <a href='../press/'>Press</a>
+                  </li>
+                </ul>
+              </nav>
+            )}
           </div>
-          {/* )} */}
         </span>
       </span>
     </header>
