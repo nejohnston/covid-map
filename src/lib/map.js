@@ -3,26 +3,26 @@ import L from 'leaflet';
  * promiseToFlyTo
  * @description
  */
-export function promiseToFlyTo(map, { zoom, center }) {
-  return new Promise((resolve, reject) => {
+export function promiseToFlyTo( map, { zoom, center }) {
+  return new Promise(( resolve, reject ) => {
     const baseError = 'Failed to fly to area';
 
-    if (!map.flyTo) {
-      reject(`${baseError}: no flyTo method on map`);
+    if ( !map.flyTo ) {
+      reject( `${baseError}: no flyTo method on map` );
     }
 
-    if (typeof zoom !== 'number') {
-      reject(`${baseError}: zoom invalid number ${zoom}`);
+    if ( typeof zoom !== 'number' ) {
+      reject( `${baseError}: zoom invalid number ${zoom}` );
     }
 
     const mapCenter = center || map.getCenter();
     const mapZoom = zoom || map.getZoom();
 
-    map.flyTo(mapCenter, mapZoom, {
+    map.flyTo( mapCenter, mapZoom, {
       duration: 2
     });
 
-    map.once('moveend', () => {
+    map.once( 'moveend', () => {
       resolve();
     });
   });
@@ -34,10 +34,10 @@ export function promiseToFlyTo(map, { zoom, center }) {
  */
 
 export function getCurrentLocation() {
-  return new Promise((resolve, reject) => {
+  return new Promise(( resolve, reject ) => {
     navigator.geolocation.getCurrentPosition(
-      (pos) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
-      (err) => reject(err)
+      ( pos ) => resolve({ lat: pos.coords.latitude, lng: pos.coords.longitude }),
+      ( err ) => reject( err )
     );
   });
 }
@@ -78,21 +78,21 @@ export function createTripPointsGeoJson({ locations } = {}) {
  * tripStopPointToLayer
  */
 
-export function tripStopPointToLayer(feature = {}, latlng) {
+export function tripStopPointToLayer( feature = {}, latlng ) {
   const { properties = {} } = feature;
   const { placename, country, fb, image, founded } = properties;
 
   let imageString = '';
   let text = '';
 
-  if (image) {
+  if ( image ) {
     imageString = `
       <span class="trip-stop-image" style="background-image: url(${image})">${placename}</span>
     `;
   }
 
   // Determines wether or not to display Facebook or not
-  if (fb !== '') {
+  if ( fb !== '' ) {
     text = `
     <div class="trip-stop">
       <div class="trip-stop-left-content">
@@ -130,16 +130,16 @@ export function tripStopPointToLayer(feature = {}, latlng) {
 
   const popup = L.popup({
     maxWidth: 400
-  }).setContent(text);
+  }).setContent( text );
 
-  const layer = L.marker(latlng, {
+  const layer = L.marker( latlng, {
     icon: L.divIcon({
       className: 'icon',
       html: `<span class="icon-trip-stop"></span>`,
       iconSize: 20
     }),
     riseOnHover: true
-  }).bindPopup(popup);
+  }).bindPopup( popup );
 
   return layer;
 }

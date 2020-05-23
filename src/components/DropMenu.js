@@ -43,19 +43,22 @@ const DropMenu = () => {
         square='true'
       >
         <MenuItem>
-          <a href='../about/'>About</a>
+          <a href='http://studentsagainstcorona.co.uk/about/'>About</a>
         </MenuItem>
         <MenuItem>
-          <a href='../donate/'>Donate</a>
+          <a href='http://studentsagainstcorona.co.uk/donate/'>Donate</a>
         </MenuItem>
         <MenuItem>
-          <a href='../how_can_i_help/'>How</a>
+          <a href='http://studentsagainstcorona.co.uk/how_can_i_help/'>How</a>
         </MenuItem>
         <MenuItem>
-          <a href='../hygiene/'>Hygiene</a>
+          <a href='http://studentsagainstcorona.co.uk/hygiene/'>Hygiene</a>
         </MenuItem>
         <MenuItem>
-          <a href='../press/'>Press</a>
+          <a href='http://studentsagainstcorona.co.uk/press/'>Press</a>
+        </MenuItem>
+        <MenuItem>
+          <a href='https://againstcoronamap.web.app/'>Map</a>
         </MenuItem>
       </Menu>
     </div>

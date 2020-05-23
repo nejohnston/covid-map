@@ -21,16 +21,16 @@ const IndexPage = () => {
    */
 
   async function mapEffect({ leafletElement } = {}) {
-    if (!leafletElement) return;
+    if ( !leafletElement ) return;
 
-    leafletElement.eachLayer((layer) => leafletElement.removeLayer(layer));
+    leafletElement.eachLayer(( layer ) => leafletElement.removeLayer( layer ));
     const tripPoints = createTripPointsGeoJson({ locations });
-    const tripPointsGeoJsonLayers = new L.geoJson(tripPoints, {
+    const tripPointsGeoJsonLayers = new L.geoJson( tripPoints, {
       pointToLayer: tripStopPointToLayer
     });
-    tripPointsGeoJsonLayers.addTo(leafletElement);
+    tripPointsGeoJsonLayers.addTo( leafletElement );
     const bounds = tripPointsGeoJsonLayers.getBounds();
-    leafletElement.fitBounds(bounds);
+    leafletElement.fitBounds( bounds );
   }
 
   const mapSettings = {
