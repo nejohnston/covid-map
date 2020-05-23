@@ -12,7 +12,7 @@ import Map from 'components/Map';
 import { locations } from 'data/locations';
 
 const DEFAULT_ZOOM = 2.5;
-
+console.log(process.env.GATSBY_APP_MAP);
 const IndexPage = () => {
   /**
    * mapEffect
@@ -21,26 +21,26 @@ const IndexPage = () => {
    */
 
   async function mapEffect({ leafletElement } = {}) {
-    if ( !leafletElement ) return;
+    if (!leafletElement) return;
 
-    leafletElement.eachLayer(( layer ) => leafletElement.removeLayer( layer ));
+    leafletElement.eachLayer((layer) => leafletElement.removeLayer(layer));
     const tripPoints = createTripPointsGeoJson({ locations });
-    const tripPointsGeoJsonLayers = new L.geoJson( tripPoints, {
-      pointToLayer: tripStopPointToLayer,
+    const tripPointsGeoJsonLayers = new L.geoJson(tripPoints, {
+      pointToLayer: tripStopPointToLayer
     });
-    tripPointsGeoJsonLayers.addTo( leafletElement );
+    tripPointsGeoJsonLayers.addTo(leafletElement);
     const bounds = tripPointsGeoJsonLayers.getBounds();
-    leafletElement.fitBounds( bounds );
+    leafletElement.fitBounds(bounds);
   }
 
   const mapSettings = {
     defaultBaseMap: 'mapSettings',
     zoom: DEFAULT_ZOOM,
-    mapEffect,
+    mapEffect
   };
 
   return (
-    <Layout pageName="home">
+    <Layout pageName='home'>
       <Helmet>
         <title>#AgainstCorona</title>
       </Helmet>

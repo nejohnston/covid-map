@@ -20,9 +20,9 @@ A mapping project displaying all of the #AgainstCorona hubs.
 ### Requirements
 * [Gatsby CLI](https://www.npmjs.com/package/gatsby-cli)
 * [Yarn](https://yarnpkg.com/en/)
-* [MapBox](www.mapbox.com)* 
+* [MapBox](www.mapbox.com)** 
 
-*A MapBox API key is required to run this application.
+** A MapBox API key is required to run this application.
 
 
 ### Starting from Scratch

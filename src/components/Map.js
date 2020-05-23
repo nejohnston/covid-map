@@ -5,10 +5,18 @@ import { Map as BaseMap, TileLayer, ZoomControl } from 'react-leaflet';
 import { useConfigureLeaflet, useMapServices, useRefEffect } from 'hooks';
 import { isDomAvailable } from 'lib/util';
 
+import { loadProgressBar } from 'axios-progress-bar';
+
 const DEFAULT_MAP_SERVICE = 'OpenStreetMap';
 
-const Map = ( props ) => {
-  const { children, className, defaultBaseMap = DEFAULT_MAP_SERVICE, mapEffect, ...rest } = props;
+const Map = (props) => {
+  const {
+    children,
+    className,
+    defaultBaseMap = DEFAULT_MAP_SERVICE,
+    mapEffect,
+    ...rest
+  } = props;
 
   const mapRef = useRef();
 
@@ -16,24 +24,24 @@ const Map = ( props ) => {
 
   useRefEffect({
     ref: mapRef,
-    effect: mapEffect,
+    effect: mapEffect
   });
 
   const services = useMapServices({
-    names: [...new Set([defaultBaseMap, DEFAULT_MAP_SERVICE])],
+    names: [ ...new Set([ defaultBaseMap, DEFAULT_MAP_SERVICE ]) ]
   });
-  const basemap = services.find(( service ) => service.name === defaultBaseMap );
+  const basemap = services.find((service) => service.name === defaultBaseMap);
 
   let mapClassName = `map`;
 
-  if ( className ) {
+  if (className) {
     mapClassName = `${mapClassName} ${className}`;
   }
 
-  if ( !isDomAvailable()) {
+  if (!isDomAvailable()) {
     return (
       <div className={mapClassName}>
-        <p className="map-loading">Loading map...</p>
+        <p className='map-loading'>Loading map...</p>
       </div>
     );
   }
@@ -41,15 +49,17 @@ const Map = ( props ) => {
   const mapSettings = {
     className: 'map-base',
     zoomControl: false,
-    ...rest,
+    ...rest
   };
+
+  loadProgressBar();
 
   return (
     <div className={mapClassName}>
       <BaseMap ref={mapRef} {...mapSettings}>
-        { children }
-        { basemap && <TileLayer {...basemap} /> }
-        <ZoomControl position="bottomright" />
+        {children}
+        {basemap && <TileLayer {...basemap} />}
+        <ZoomControl position='bottomright' />
       </BaseMap>
     </div>
   );
@@ -59,7 +69,7 @@ Map.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   defaultBaseMap: PropTypes.string,
-  mapEffect: PropTypes.func,
+  mapEffect: PropTypes.func
 };
 
 export default Map;
