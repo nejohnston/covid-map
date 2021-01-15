@@ -1,3 +1,5 @@
+# This project uses [Colby Fayock's](https://github.com/colbyfayock/coronavirus-map-dashboard) map structure and all credit goes to him for the map.
+
 # 🍃 #AgainstCorona
 
 A mapping project displaying all of the #AgainstCorona hubs.
